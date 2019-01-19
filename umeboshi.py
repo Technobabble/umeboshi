@@ -44,12 +44,25 @@ async def on_message(message):
         await client.delete_message(message)
     
     if message.content.upper().startswith('!WALL'):
-        await client.send_message(message.channel, "Currently a work in progress, type !accept to join the server!")
+        if message.author.id == "388486377521807362":
+            await client.send_file(message.channel, "crunchnmunch.png")
+            await client.send_file(message.channel, "rule1.png")
+            await client.send_message(message.channel, "Don't be an overly sensitive beta male, it's not a good look.")
+            await client.send_file(message.channel, "rule2.png")
+            await client.send_message(message.channel, "Muting others is highly frowned upon. This isn't a hugbox. \n*This includes lowering a user's mic volume to a low percentage.*")
+            await client.send_message(message.channel, "\n\n=========================================")
+            await client.send_message(message.channel, "If you accept these terms, type in __**!accept**__ to join the server.")
+            await client.send_message(message.channel, "=========================================")
+            await client.send_file(message.channel, "Da Crunch n Munch Crew Theme Song.mp3")
+            
+    if message.content.upper().startswith('!LINK'):
+        if message.author.id == "388486377521807362":
+            await client.create_invite(message.channel)
     
     if message.content.upper().startswith('!ACCEPT'):
         if "457754871794368512" in [role.id for role in message.author.roles]:
             userID = message.author.id
-            await client.send_message(discord.Object(id='389016178489556996'), "<@%s> promises not to  be a beta cuck! We'll see!" % (userID))
+            await client.send_message(discord.Object(id='389016178489556996'), "Hello, <@%s>! Enjoy your stay!" % (userID))
             role = discord.utils.get(message.server.roles, name='New Guy')
             await client.replace_roles(message.author, role)
             await client.delete_message(message)
@@ -68,13 +81,6 @@ async def on_message(message):
             #args[0] = !SAY
             #args[1] = Hey
             #args[2] = There
-        else:
-            userID = message.author.id
-            await client.send_message(message.channel, "Your testosterone levels are too low, <@%s>!" % (userID))
-        
-    if message.content.upper() == "!MUTRUT":
-        if "389523728146497536" in [role.id for role in message.author.roles]:
-            await client.send_message(message.channel, "https://www.twitch.tv/mutrut32")
         else:
             userID = message.author.id
             await client.send_message(message.channel, "Your testosterone levels are too low, <@%s>!" % (userID))
@@ -126,4 +132,4 @@ async def on_message(message):
             await client.send_message(message.channel, _roleList)
             
     
-client.run("NDU3NjM5MzM4MDA4NjQxNTY2.DgcC5w.ofwjM118f0T9WhZ23jsJ39zjBMk")
+client.run("No")

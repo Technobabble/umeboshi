@@ -1,1 +1,1 @@
-Umeboshi is my personal Discord bot
+Umeboshi is my personal Discord bot.
